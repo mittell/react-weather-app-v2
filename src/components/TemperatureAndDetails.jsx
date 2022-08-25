@@ -25,7 +25,16 @@ const TemperatureAndDetails = ({
 		feels_like,
 		timezone,
 	},
+	units,
 }) => {
+	const windUnit = () => {
+		if (units === 'imperial') {
+			return 'mph';
+		} else {
+			return 'm/s';
+		}
+	};
+
 	return (
 		<div>
 			<div className='flex items-center justify-center py-6 text-xl text-cyan-300'>
@@ -51,7 +60,7 @@ const TemperatureAndDetails = ({
 					<div className='flex font-light text-sm items-center justify-center'>
 						<UilWind size={18} className='mr-1' />
 						Wind:
-						<span className='font-medium ml-1'>{`${speed.toFixed()} km/h`}</span>
+						<span className='font-medium ml-1'>{`${speed.toFixed()} ${windUnit()}`}</span>
 					</div>
 				</div>
 			</div>
